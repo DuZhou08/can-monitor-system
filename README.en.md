@@ -8,6 +8,7 @@ A **master console** on **STM32F407 + FreeRTOS + LVGL** that aggregates two **ST
 
 - [System Architecture](#system-architecture)
 - [UI Gallery](#ui-gallery)
+- [Demo](#demo)
 - [Nodes](#nodes)
 - [Features](#features)
 - [Hardware](#hardware)
@@ -42,6 +43,13 @@ The master runs a 4-page LVGL touch UI, switched by touch:
 | Diagnostics | Settings |
 | :---: | :---: |
 | ![Diagnostics](docs/images/ui/Diag_page.jpg) | ![Settings](docs/images/ui/Set_page.jpg) |
+
+## Demo
+
+Real-device demo — three nodes power up onto the bus, live data refresh,
+touch page switching, and command dispatch:
+
+![Three-node CAN monitoring system demo](docs/images/demo.gif)
 
 ## Nodes
 
