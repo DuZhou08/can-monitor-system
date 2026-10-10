@@ -1,0 +1,6 @@
+# ST-Link V2 (USB ID: 0483:3748)
+SUBSYSTEM=="usb", ATTR{idVendor}=="0483", ATTR{idProduct}=="3748", MODE="0666", TAG+="uaccess"
+# ST-Link V2.1 (USB ID: 0483:374b)
+SUBSYSTEM=="usb", ATTR{idVendor}=="0483", ATTR{idProduct}=="374b", MODE="0666", TAG+="uaccess"
+# ST-Link (新版固件复合设备, 含 VCP 串口)
+SUBSYSTEM=="usb", ATTR{idVendor}=="0483", ATTR{idProduct}=="374d", MODE="0666", TAG+="uaccess"

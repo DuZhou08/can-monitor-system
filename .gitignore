@@ -1,0 +1,44 @@
+# ---- 编译产物 (EIDE / Keil / GCC) ----
+build/
+Objects/
+Listings/
+DebugConfig/
+*.o
+*.d
+*.elf
+*.hex
+*.bin
+*.map
+*.lst
+*.axf
+
+# ---- Keil 用户状态 (含用户名, 不入库) ----
+*.uvguix.*
+*.uvoptx
+*.uvopt.bak
+*.uvproj.bak
+uv4.log.lock
+
+# ---- EIDE ----
+.eide/log
+.eide/*.usr.ctx.json
+*.ept
+*.eide-template
+
+# ---- 我的工作区 / 编辑器 ----
+.sisyphus/
+.claude/
+**/.vscode/launch.json
+**/.vscode/settings.json
+**/.vscode/c_cpp_properties.json
+**/.vscode/*.log
+
+# ---- 系统 ----
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# ---- 说明: lvgl ----
+# lvgl 已"瘦身"入库(仅 src/ + 头部文件, ~26M, 克隆即可编译).
+# 若改用 submodule, 则删除 master/lvgl 并取消下行注释:
+# master/lvgl/

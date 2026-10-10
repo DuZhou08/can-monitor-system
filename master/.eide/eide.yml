@@ -1,0 +1,238 @@
+version: "4.1"
+name: code
+type: ARM
+deviceName: STM32F407VETx
+packDir: null
+srcDirs:
+  - lvgl/src
+virtualFolder:
+  name: <virtual_root>
+  files: []
+  folders:
+    - name: start
+      files:
+        - path: start/startup_stm32f40_41xxx.S
+        - path: start/core_cm4.h
+        - path: start/stm32f4xx.h
+        - path: start/system_stm32f4xx.c
+        - path: start/system_stm32f4xx.h
+      folders: []
+    - name: library
+      files:
+        - path: library/misc.c
+        - path: library/misc.h
+        - path: library/stm32f4xx_adc.c
+        - path: library/stm32f4xx_adc.h
+        - path: library/stm32f4xx_can.c
+        - path: library/stm32f4xx_can.h
+        - path: library/stm32f4xx_crc.c
+        - path: library/stm32f4xx_crc.h
+        - path: library/stm32f4xx_cryp.c
+        - path: library/stm32f4xx_cryp_aes.c
+        - path: library/stm32f4xx_cryp_des.c
+        - path: library/stm32f4xx_cryp_tdes.c
+        - path: library/stm32f4xx_cryp.h
+        - path: library/stm32f4xx_dac.c
+        - path: library/stm32f4xx_dac.h
+        - path: library/stm32f4xx_dbgmcu.c
+        - path: library/stm32f4xx_dbgmcu.h
+        - path: library/stm32f4xx_dcmi.c
+        - path: library/stm32f4xx_dcmi.h
+        - path: library/stm32f4xx_dma.c
+        - path: library/stm32f4xx_dma.h
+        - path: library/stm32f4xx_exti.c
+        - path: library/stm32f4xx_exti.h
+        - path: library/stm32f4xx_flash.c
+        - path: library/stm32f4xx_flash.h
+        - path: library/stm32f4xx_fsmc.c
+        - path: library/stm32f4xx_fsmc.h
+        - path: library/stm32f4xx_gpio.c
+        - path: library/stm32f4xx_gpio.h
+        - path: library/stm32f4xx_hash.c
+        - path: library/stm32f4xx_hash_md5.c
+        - path: library/stm32f4xx_hash_sha1.c
+        - path: library/stm32f4xx_hash.h
+        - path: library/stm32f4xx_i2c.c
+        - path: library/stm32f4xx_i2c.h
+        - path: library/stm32f4xx_iwdg.c
+        - path: library/stm32f4xx_iwdg.h
+        - path: library/stm32f4xx_pwr.c
+        - path: library/stm32f4xx_pwr.h
+        - path: library/stm32f4xx_rcc.c
+        - path: library/stm32f4xx_rcc.h
+        - path: library/stm32f4xx_rng.c
+        - path: library/stm32f4xx_rng.h
+        - path: library/stm32f4xx_rtc.c
+        - path: library/stm32f4xx_rtc.h
+        - path: library/stm32f4xx_sdio.c
+        - path: library/stm32f4xx_sdio.h
+        - path: library/stm32f4xx_spi.c
+        - path: library/stm32f4xx_spi.h
+        - path: library/stm32f4xx_syscfg.c
+        - path: library/stm32f4xx_syscfg.h
+        - path: library/stm32f4xx_tim.c
+        - path: library/stm32f4xx_tim.h
+        - path: library/stm32f4xx_usart.c
+        - path: library/stm32f4xx_usart.h
+        - path: library/stm32f4xx_wwdg.c
+        - path: library/stm32f4xx_wwdg.h
+      folders: []
+    - name: system
+      files:
+        - path: system/Delay.c
+        - path: system/Delay.h
+      folders: []
+    - name: hardware
+      files:
+        - path: hardware/LED.c
+        - path: hardware/LED.h
+        - path: hardware/tft.c
+        - path: hardware/tft.h
+        - path: hardware/touch.c
+        - path: hardware/touch.h
+        - path: hardware/W25Q64.c
+        - path: hardware/W25Q64.h
+        - path: hardware/W25Q64_Reg.h
+      folders: []
+    - name: user
+      files:
+        - path: user/main.c
+        - path: user/lv_port_disp.c
+        - path: user/lv_port_disp.h
+        - path: user/lv_port_indev.c
+        - path: user/lv_port_indev.h
+        - path: user/stm32f4xx_conf.h
+        - path: user/stm32f4xx_it.c
+        - path: user/stm32f4xx_it.h
+        - path: user/FreeRTOSConfig.h
+      folders: []
+    - name: MYapp
+      files:
+        - path: MYapp/MYapp.c
+        - path: MYapp/MYapp.h
+        - path: MYapp/can_monitor.c
+        - path: MYapp/can_monitor.h
+        - path: MYapp/can_ui.c
+        - path: MYapp/can_ui.h
+      folders: []
+    - name: commuication_protocol
+      files:
+        - path: commuication_protocol/MYCAN.c
+        - path: commuication_protocol/MYCAN.h
+        - path: commuication_protocol/MYSPI.c
+        - path: commuication_protocol/MYSPI.h
+      folders: []
+    - name: FreeRTOS
+      files: []
+      folders:
+        - name: Portable
+          files:
+            - path: FreeRtos/portable/heap_4.c
+            - path: FreeRtos/portable/GCC_ARM_CM4F/port.c
+            - path: FreeRtos/portable/GCC_ARM_CM4F/portmacro.h
+          folders: []
+    - name: FreeRTO
+      files: []
+      folders:
+        - name: Source
+          files:
+            - path: FreeRtos/source/croutine.c
+            - path: FreeRtos/source/event_groups.c
+            - path: FreeRtos/source/list.c
+            - path: FreeRtos/source/queue.c
+            - path: FreeRtos/source/stream_buffer.c
+            - path: FreeRtos/source/tasks.c
+            - path: FreeRtos/source/timers.c
+          folders: []
+dependenceList: []
+outDir: build
+miscInfo:
+  uid: 5e03b7cf312997f4a71556b46e411363
+targets:
+  Target1:
+    cppPreprocessAttrs:
+      defineList:
+        - USE_STDPERIPH_DRIVER
+        - STM32F40_41xxx
+      incList:
+        - start
+        - library
+        - user
+        - system
+        - hardware
+        - FreeRtos/include
+        - FreeRtos/portable/GCC_ARM_CM4F
+        - FreeRtos/portable
+        - FreeRtos/source
+        - .cmsis/include
+        - RTE/_Target 1
+        - .
+        - MYapp
+        - commuication_protocol
+        - lvgl
+      libList: []
+    excludeList: []
+    settings:
+      debugger: cortex-debug
+    toolchain: GCC
+    toolchainConfigMap:
+      GCC:
+        archExtensions: ""
+        cpuType: Cortex-M4
+        floatingPointHardware: single
+        options:
+          version: 5
+          afterBuildTasks: []
+          asm-compiler:
+            ASM_FLAGS: ""
+          beforeBuildTasks: []
+          c/cpp-compiler:
+            CXX_FLAGS: ""
+            C_FLAGS: -Wno-unknown-pragmas -Wno-misleading-indentation
+            language-c: c11
+            language-cpp: c++11
+            one-elf-section-per-data: true
+            one-elf-section-per-function: true
+            optimization: level-0
+            optimization-lto: false
+            warnings: all-warnings
+          global:
+            $float-abi-type: hard
+            misc-control: ""
+            not-use-syscalls: true
+            output-debug-info: enable
+            use-newlib-nano: true
+          linker:
+            $disableOutputTask: false
+            $outputTaskExcludes:
+              - ""
+            LD_FLAGS: ""
+            LIB_FLAGS: ""
+            output-format: elf
+            remove-unused-input-sections: true
+        scatterFilePath: start/STM32F407VETx_FLASH.ld
+        storageLayout:
+          RAM:
+            - id: 1
+              isChecked: true
+              mem:
+                size: "0x20000"
+                startAddr: "0x20000000"
+              noInit: false
+              tag: IRAM
+          ROM:
+            - id: 1
+              isChecked: true
+              isStartup: true
+              mem:
+                size: "0x80000"
+                startAddr: "0x8000000"
+              tag: IROM
+        useCustomScatterFile: true
+    uploadConfigMap:
+      OpenOCD:
+        baseAddr: "0x08000000"
+        bin: ""
+        interface: stlink
+        target: stm32f4x
+    uploader: OpenOCD
