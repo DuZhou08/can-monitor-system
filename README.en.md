@@ -20,27 +20,15 @@ A **master console** on **STM32F407 + FreeRTOS + LVGL** that aggregates two **ST
 
 ## System Architecture
 
-```
-                     ┌──────────────────────────────────┐
-                     │    master  (Master)              │
-                     │    STM32F407 + FreeRTOS + LVGL   │
-                     │                                  │
-                     │  ILI9341 320×240 TFT + touch     │
-                     │  UI: Overview/Node/Diag/Setup    │
-                     │  frame loss / alarm / cmd        │
-                     │  W25Q64 power-loss save          │
-                     └────────────────┬─────────────────┘
-                                      │ CAN bus 125 kbps
-                     ┌────────────────┴─────────────────┐
-                     │                                  │
-     ┌───────────────┴──────────────┐  ┌────────────────┴──────────────┐
-     │  slave-sensors  (Slave 0)    │  │  slave-mpu  (Slave 1)         │
-     │  STM32F103C8T6               │  │  STM32F103C8T6                │
-     │                              │  │                               │
-     │  ADC light + temp            │  │  MPU6050 6-axis               │
-     │  OLED local display          │  │  self-check + recovery        │
-     │  CAN report 0x300            │  │  CAN report 0x301             │
-     └──────────────────────────────┘  └───────────────────────────────┘
+```mermaid
+graph TD
+    M["master<br/>STM32F407 + FreeRTOS + LVGL<br/>ILI9341 320×240 TFT + touch<br/>UI: Overview / Node / Diag / Setup<br/>frame loss / alarm / cmd<br/>W25Q64 power-loss save"]
+    BUS(("CAN bus<br/>125 kbps"))
+    S0["slave-sensors (Slave 0)<br/>STM32F103C8T6<br/>ADC light + temp<br/>OLED local display<br/>CAN report 0x300"]
+    S1["slave-mpu (Slave 1)<br/>STM32F103C8T6<br/>MPU6050 6-axis<br/>self-check + recovery<br/>CAN report 0x301"]
+    M --- BUS
+    BUS --- S0
+    BUS --- S1
 ```
 
 ## UI Gallery
