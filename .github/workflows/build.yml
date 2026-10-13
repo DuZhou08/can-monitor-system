@@ -3,8 +3,12 @@ name: build
 on:
   push:
     branches: [ main ]
+    tags: [ 'v*' ]
   pull_request:
   workflow_dispatch:
+
+permissions:
+  contents: write
 
 jobs:
   firmware:
@@ -33,6 +37,36 @@ jobs:
           name: firmware
           if-no-files-found: error
           path: |
+            master/build/ci/*.elf
+            master/build/ci/*.hex
+            master/build/ci/*.bin
+            slave-sensors/build/ci/*.elf
+            slave-sensors/build/ci/*.hex
+            slave-sensors/build/ci/*.bin
+            slave-mpu/build/ci/*.elf
+            slave-mpu/build/ci/*.hex
+            slave-mpu/build/ci/*.bin
+
+      - name: Release
+        if: startsWith(github.ref, 'refs/tags/v')
+        uses: softprops/action-gh-release@v2
+        with:
+          name: ${{ github.ref_name }}
+          body: |
+            ## 三节点 CAN 分布式监控平台 ${{ github.ref_name }}
+
+            首次发布。三种 MCU 节点通过 CAN 总线 (125 kbps) 组网：
+
+            - **master** — STM32F407 + FreeRTOS + LVGL 触摸监控台
+            - **slave-sensors** — STM32F103 光照 / 温度采集
+            - **slave-mpu** — STM32F103 MPU6050 姿态采集
+
+            ### 附件
+            三个工程的固件 `*.elf` / `*.hex` / `*.bin`（CI 用 arm-none-eabi-gcc 构建）。
+
+            ### 文档
+            README / PROTOCOL / PINOUT / HARDWARE（中英双语）
+          files: |
             master/build/ci/*.elf
             master/build/ci/*.hex
             master/build/ci/*.bin
