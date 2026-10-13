@@ -26,3 +26,19 @@ jobs:
 
       - name: Build master
         run: python3 scripts/build.py master
+
+      - name: Upload firmware artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: firmware
+          if-no-files-found: error
+          path: |
+            master/build/ci/*.elf
+            master/build/ci/*.hex
+            master/build/ci/*.bin
+            slave-sensors/build/ci/*.elf
+            slave-sensors/build/ci/*.hex
+            slave-sensors/build/ci/*.bin
+            slave-mpu/build/ci/*.elf
+            slave-mpu/build/ci/*.hex
+            slave-mpu/build/ci/*.bin

@@ -13,8 +13,9 @@ try:
 except ImportError:
     sys.exit("PyYAML required: pip install pyyaml")
 
-CC   = os.environ.get("CC", "arm-none-eabi-gcc")
-SIZE = os.environ.get("SIZE", "arm-none-eabi-size")
+CC      = os.environ.get("CC", "arm-none-eabi-gcc")
+SIZE    = os.environ.get("SIZE", "arm-none-eabi-size")
+OBJCOPY = os.environ.get("OBJCOPY", "arm-none-eabi-objcopy")
 
 OPT_MAP = {"level-0": "-O0", "level-debug": "-Og", "level-1": "-O1",
            "level-2": "-O2", "level-3": "-O3", "level-s": "-Os"}
@@ -130,6 +131,10 @@ def build(proj):
     if r.returncode != 0:
         print(r.stdout); print(r.stderr)
         sys.exit(f"[{name}] FAILED linking")
+    hexf = os.path.join(out, name + ".hex")
+    binf = os.path.join(out, name + ".bin")
+    subprocess.run([OBJCOPY, "-O", "ihex", elf, hexf], check=True)
+    subprocess.run([OBJCOPY, "-O", "binary", elf, binf], check=True)
     print(f"[{name}] OK -> {elf}")
     subprocess.run([SIZE, elf])
 

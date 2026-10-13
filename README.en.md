@@ -1,6 +1,6 @@
 # Three-Node CAN Distributed Monitoring System
 
-[![build](https://github.com/DuZhou08/can-monitor-system/actions/workflows/build.yml/badge.svg)](https://github.com/DuZhou08/can-monitor-system/actions/workflows/build.yml)
+[![build](https://github.com/DuZhou08/can-monitor-system/actions/workflows/build.yml/badge.svg)](https://github.com/DuZhou08/can-monitor-system/actions/workflows/build.yml) ![License](https://img.shields.io/badge/license-MIT-blue) ![C](https://img.shields.io/badge/language-C-A8B9CC) ![STM32](https://img.shields.io/badge/MCU-STM32F407%2FF103-03234B) ![LVGL](https://img.shields.io/badge/GUI-LVGL%20v9-6C3FC5)
 
 A **master console** on **STM32F407 + FreeRTOS + LVGL** that aggregates two **STM32F103** slaves (light/temperature and MPU6050 attitude) over a **CAN bus (125 kbps)** — covering acquisition, live display, alarms, bidirectional commands, power-loss persistence, and bus-error diagnostics.
 
