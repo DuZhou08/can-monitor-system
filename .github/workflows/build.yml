@@ -1,0 +1,28 @@
+name: build
+
+on:
+  push:
+    branches: [ main ]
+  pull_request:
+  workflow_dispatch:
+
+jobs:
+  firmware:
+    name: Build firmware
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Install ARM toolchain
+        run: |
+          sudo apt-get update
+          sudo apt-get install -y gcc-arm-none-eabi python3-yaml
+
+      - name: Build slave-sensors
+        run: python3 scripts/build.py slave-sensors
+
+      - name: Build slave-mpu
+        run: python3 scripts/build.py slave-mpu
+
+      - name: Build master
+        run: python3 scripts/build.py master

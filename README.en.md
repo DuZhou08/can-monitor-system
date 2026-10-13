@@ -1,5 +1,7 @@
 # Three-Node CAN Distributed Monitoring System
 
+[![build](https://github.com/DuZhou08/can-monitor-system/actions/workflows/build.yml/badge.svg)](https://github.com/DuZhou08/can-monitor-system/actions/workflows/build.yml)
+
 A **master console** on **STM32F407 + FreeRTOS + LVGL** that aggregates two **STM32F103** slaves (light/temperature and MPU6050 attitude) over a **CAN bus (125 kbps)** — covering acquisition, live display, alarms, bidirectional commands, power-loss persistence, and bus-error diagnostics.
 
 **English** | [简体中文](README.md)

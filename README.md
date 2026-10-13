@@ -1,5 +1,7 @@
 # 三节点 CAN 分布式监控系统
 
+[![build](https://github.com/DuZhou08/can-monitor-system/actions/workflows/build.yml/badge.svg)](https://github.com/DuZhou08/can-monitor-system/actions/workflows/build.yml)
+
 基于 **STM32F407 + FreeRTOS + LVGL** 的主机监控台，通过 **CAN 总线（125 kbps）** 汇聚两路 **STM32F103** 从机（光照/温度、MPU6050 姿态），实现采集、实时显示、告警、双向命令、掉电保存与总线错误诊断的完整闭环。
 
 **简体中文** | [English](README.en.md)
